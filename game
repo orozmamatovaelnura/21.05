@@ -1,0 +1,22 @@
+
+def guess_num(min,max,num_of_tries):
+  i=(min+max)//2
+  inp=input(f'Is {i} your number ? :')
+  if inp=='yes':
+    print(f'The program guessed the number affter {num_of_tries} try/tries')
+  elif inp=='>':
+    max=i
+    if max-min==1:
+      print(f'Not possible !!!\n Can\'t be less than {max}')
+    else:
+      return guess_num(min,max,num_of_tries+1)
+  elif inp=='<':
+    min=i
+    if max-min==1:
+      print(f'Not possible !!!\nCan\'t be more than {min}')
+    else:
+      return guess_num(min,max,num_of_tries+1)
+
+print('The game is started')
+
+guess_num(1,100,0)
